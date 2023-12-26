@@ -57,8 +57,6 @@ import Concordium.Types.Option
 
 import qualified ConcordiumTests.KonsensusV1.Common as Common
 
-type PV = 'P6
-
 maxBaker :: (Integral a) => a
 maxBaker = 5
 
@@ -273,7 +271,7 @@ transactionOutcomesHash outcomes specialOutcomes =
 emptyBlockTOH :: BakerId -> Transactions.TransactionOutcomesHash
 emptyBlockTOH bid = transactionOutcomesHash [] [BlockAccrueReward 0 0 0 0 0 0 bid]
 
-setStateHash :: StateHash -> BakedBlock PV -> BakedBlock PV
+setStateHash :: StateHash -> BakedBlock 'P6 -> BakedBlock 'P6
 setStateHash newStateHash block = case bbDerivableHashes block of
     hashes@DerivableBlockHashesV0{} ->
         block{bbDerivableHashes = hashes{dbhv0BlockStateHash = newStateHash}}

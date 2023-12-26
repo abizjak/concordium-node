@@ -1393,21 +1393,21 @@ toQuorumCertificateWitness qc = QuorumCertificateCheckedWitness (qcEpoch qc)
 -- | Information needed for computing the result hash for a block.
 data BlockResultHashInput = BlockResultHashInput
     { -- | Hash of the block state.
-      shiBlockStateHash :: StateHash,
+      shiBlockStateHash :: !StateHash,
       -- | Hash of the transaction outcomes.
-      shiTransationOutcomesHash :: TransactionOutcomesHash,
+      shiTransationOutcomesHash :: !TransactionOutcomesHash,
       -- | The finalization committee hash for the current epoch.
-      shiCurrentFinalizationCommitteeHash :: FinalizationCommitteeHash,
+      shiCurrentFinalizationCommitteeHash :: !FinalizationCommitteeHash,
       -- | The finalization committee hash for the next epoch.
-      shiNextFinalizationCommitteeHash :: FinalizationCommitteeHash,
+      shiNextFinalizationCommitteeHash :: !FinalizationCommitteeHash,
       -- | The block height information of this block.
-      shiBlockHeightInfo :: BlockHeightInfo
+      shiBlockHeightInfo :: !BlockHeightInfo
     }
 
 -- | The block height information of a block.
 data BlockHeightInfo = BlockHeightInfo
     { -- | The absolute height of the block.
-      bhiAbsoluteBlockHeight :: AbsoluteBlockHeight,
+      bhiAbsoluteBlockHeight :: !AbsoluteBlockHeight,
       -- | The genesis index of the block.
       bhiGenesisIndex :: !GenesisIndex,
       -- | The relative block height from the genesis prior to this block.
